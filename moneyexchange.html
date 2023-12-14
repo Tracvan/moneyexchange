@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Money Exchange</title>
+    <style>
+        h3{
+            text-align: center;
+            color: red;
+        }
+        table{
+            margin-left: 250px;
+        }
+        span{
+            margin-left: 250px;
+        }
+        p{
+            margin-left: 250px;
+        }
+    </style>
+</head>
+<body>
+<h3>MONEY EXCHANGE</h3>
+<table>
+    <tr>
+        <th style="font-size: 10px">You want to exchange :</th>
+        <td> <input type="text" id="amount" value="amount"> </td>
+
+        <th>From</th>
+        <td>
+            <select id="from">
+                <option value="vnđ">vnđ</option>
+                <option value="$">$</option>
+            </select>
+        </td>
+        <th>To</th>
+        <td>
+            <select id="to">
+                <option value="vnđ">vnđ</option>
+                <option value="$">$</option>
+            </select>
+        </td>
+        <td><button onclick="ChangeMoney()">Convert</button></td>
+    </tr>
+
+</table><br>
+<span>Result :</span>
+<p id="result"></p>
+</body>
+</html>
+<script>
+    function ChangeMoney() {
+    let a = parseInt(document.getElementById("amount").value);
+    let x = document.getElementById("from").value;
+    let y = document.getElementById("to").value;
+    let result
+    if(x==='vnđ' && y==='$')
+        result= a/23000;
+    if(x==='vnđ' && y==='vnđ')
+        result=a;
+    if(x==='$' && y==='vnđ')
+        result=a*23000
+    if(x==='$' && y=='$')
+        result=a
+    document.getElementById("result").innerHTML = result;
+    }
+</script>
